@@ -184,7 +184,7 @@ function updateFavourites(recipe_id, opinion, value) {
 // if the user is not logged  shows a notification
 function promptToLogin() {
     UIkit.notification({
-        message: `You must be signed in to do that!`,
+        message: `T'has de registrar per afegir una recepta!`,
         status: 'primary',
         pos: 'top-right',
         timeout: 3000
