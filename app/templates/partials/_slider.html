@@ -9,7 +9,7 @@
                     <!-- CARD IMAGE -->
                     <a href="{{ url_for('recipe', recipe=recipe._id, title=recipe.details.title|resub )}}">
                         <div class="uk-card-media-left uk-cover-container">
-                            <img class="slider-image" data-src="{{ recipe.image[0] }}" alt="{{ recipe.image[1] }}" uk-cover uk-img>
+                            <img uk-cover uk-img data-src="{{ recipe.image[0] }}" alt="{{ recipe.image[1] }}" >
                             <canvas width="400" height="400"></canvas>
                         </div>
                     </a>

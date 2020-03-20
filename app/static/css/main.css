@@ -166,11 +166,17 @@ footer img {
 */
 
 .featured-slider-card {
-    width: 100%;
+    width: 90%;
+    margin-top:30px;
+}
+.uk-card {
+    margin-left: 0px;
+    padding: 0px!important;
+    border-radius: 10px;
 }
 
 .uk-card-badge {
-    top: 10px;
+    top: 25px;
     right: 10px;
     color: white !important;
     background-color: var(--darkblue) !important;
@@ -215,8 +221,9 @@ footer img {
 .slider .uk-iconnav > * > a, .slider .uk-iconnav > * > i,
 #recipe .uk-iconnav > * > a, #recipe .uk-iconnav > * > i ,
 .grid .uk-iconnav > * > a, .grid .uk-iconnav > * > i     {
-    vertical-align: top;
+    vertical-align: middle;
 }
+
 
 
 /*
@@ -361,9 +368,8 @@ p.comment {
     color: var(--darkblue);
 }
 
-.uk-card {
-    padding-left:30px;
-    padding-right: 30px;
+.recipe-card {
+    padding-left:0px;
 }
 
 

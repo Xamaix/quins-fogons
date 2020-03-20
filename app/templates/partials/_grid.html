@@ -14,13 +14,7 @@
 
         <!-- RECIPE LABEL -->
         <div class="uk-card-badge uk-label">
-            {% if recipe.filters.main_ingredient != "" %}
-                {{ recipe.filters.main_ingredient }}
-            {% elif recipe.filters.ingred[0] != "" %}
-                {{ recipe.filters.ingred[0] }}
-            {% else %}
-                {{ recipe.filters.cuina }}
-            {% endif %}
+                {{ recipe.filters.cuina|title }}
         </div>
 
         <!-- RECIPE TITLE -->
