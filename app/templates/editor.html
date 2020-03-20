@@ -99,7 +99,7 @@
 
             <!-- IINSTRUCTIONS -->
             <h3 class="uk-h3 uk-width-1-1">Instruccions</h3>
-            <div id="instructions" class="uk-grid uk-grid-collapse uk-width-1-1@m" uk-grid>
+            <div id="instructions" class="uk-grid uk-grid-margin-medium uk-grid-collapse uk-width-1-1@m" uk-grid>
                 {% if recipe %}
                     {% for method in recipe.methods %}
                         <div class="uk-width-1-2@s">
@@ -128,7 +128,7 @@
             
             <!-- INGREDIENTS -->
             <h3 class="uk-h3 uk-width-1-1">Ingredients</h3>
-            <div id="ingredients" class="uk-grid uk-grid-collapse uk-width-1-1@m uk-child-width-1-4@s" uk-grid>
+            <div id="ingredients" class="uk-grid uk-grid-collapse uk-width-1-1@m uk-child-width-1-2@s" uk-grid>
                     {% if recipe %}
                         {% for ingredient in recipe.ingredients %}
                             <input class="uk-input" type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient }}" autocomplete="off">

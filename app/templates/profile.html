@@ -12,7 +12,9 @@
         <!-- PLACEHOLDER IF 0 RECIPES EXIST  -->
         {% if recipes|count == 0 %}
             <div id="recipes-placeholder" class="uk-placeholder uk-text-center uk-padding-large">
-                    <p>Treballes poc, no hi ha cap recepta encara.</p>
+                    <p>Potser ets un geni de la cuina, però ningú ho sap encara. </p>
+                    <br>
+                    <p>Afegeix la teva <strong>primera</strong> recepta! </p>
             </div>
         {% else %}
             <div id="grid" class="uk-grid-medium uk-grid-match uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
