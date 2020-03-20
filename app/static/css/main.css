@@ -361,6 +361,11 @@ p.comment {
     color: var(--darkblue);
 }
 
+.uk-card {
+    padding-left:30px;
+    padding-right: 30px;
+}
+
 
 /*
 ==================================================================

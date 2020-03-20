@@ -1,10 +1,10 @@
 {
     "filters": {
-        "planning": "",
-        "cuisine": "",
-        "mood": "",
-        "diet": "",
-        "skill": "",
+        "format": "",
+        "cuina": "",
+        "moment": "",
+        "excepcions": "",
+        "habilitat": "",
         "main_ingredient": "",
         "course": [],
         "kw": [],

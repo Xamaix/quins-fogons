@@ -22,11 +22,11 @@ class Graphs:
 
         # create chart type, labels, heading
         bar_chart = pygal.Bar(fill=True, interpolate='cubic', style=dark_blue_style, tooltip_border_radius=10, legend_at_bottom=True)
-        bar_chart.title = 'Average Likes / Dislikes per Cuisine'
+        bar_chart.title = 'Promig de likes / dislikes per Cuina'
         bar_chart.x_labels = ['Likes', 'Dislikes']
 
         # query db for likes / dislikes and group by cuisine
-        cursor = db.recipes.aggregate([{"$group": {"_id": "$filters.cuisine", "likes": {"$avg": '$users.likes'}, "dislikes": {"$avg": '$users.dislikes'}}}])
+        cursor = db.recipes.aggregate([{"$group": {"_id": "$filters.cuina", "likes": {"$avg": '$users.likes'}, "dislikes": {"$avg": '$users.dislikes'}}}])
 
         # add a new bar to the graph for each group
         # dislikes are inverted for the bar chart visual aspect
@@ -51,14 +51,14 @@ class Graphs:
 
         # create chart type, labels, heading
         pie_chart = pygal.Pie(inner_radius=.4, fill=True, interpolate='cubic', style=dark_blue_style, tooltip_border_radius=10)
-        pie_chart.title = 'Average KCAL per Cuisine'
+        pie_chart.title = 'Promig KCAL per Cuina'
 
         # nutrition is a 2d array and I had trouble with positional queries
         # For that reason two $project queries were used to unwind the 2d array
         cursor = db.recipes.aggregate([
             {"$project":
                 {
-                    "_id": "$filters.cuisine",
+                    "_id": "$filters.cuina",
                     "arr": {"$arrayElemAt": ["$nutrition", 0]}
                 }
             },
