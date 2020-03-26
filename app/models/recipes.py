@@ -149,7 +149,7 @@ class Recipe:
 
         if recipe_id == 'new':
             recipe['image'] = [data['image-url']]
-            recipe['filters']['ingred'] = [data['cuisine']]
+            recipe['filters']['ingred'] = [data['cuina']]
         else:
             recipe['image'][0] = data['image-url']
 

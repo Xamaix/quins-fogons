@@ -355,6 +355,10 @@ p.comment {
     top: 46%;
 }
 
+.uk-card-media-left .uk-cover-container {
+    height:100%;
+}
+
 .uk-subnav-pill li:hover {
     cursor: pointer;
 }
