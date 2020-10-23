@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <section id="editor" class="uk-container">
 
     <!-- HEADING -->
@@ -15,25 +16,25 @@
             <!-- AUTHOR -->
             <div class="uk-width-1-2@s">
                 <label class="uk-form-label" for="author">Autor</label>
-                <input class="uk-input" type="text" name="author"  {% if recipe %} value="{{ recipe.details.author }}" {% else %} value="{{ current_user.user['username']|title }}" {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" type="text" name="author"  {% if recipe %} value="{{ recipe.details.author }}" {% else %} value="{{ current_user.user['username']|title }}" {% endif %} autocomplete="on" required>
             </div>
 
             <!-- TITLE -->
             <div class="uk-width-1-2@s">
                 <label class="uk-form-label" for="title">Títol</label>
-                <input class="uk-input" type="text" name="title" {% if recipe %} value="{{ recipe.details.title }}" {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" type="text" name="title" {% if recipe %} value="{{ recipe.details.title }}" {% endif %} autocomplete="on" required>
             </div>
 
             <!-- DESCRIPTION -->
             <div class="uk-width-1-1@m">
                 <label class="uk-form-label" for="description">Descripció</label>
-                <input class="uk-input" rows="4" type="text" name="description" {% if recipe %} value="{{ recipe.details.description }}" {% else %} placeholder="Digues una breu descripció de la recepta!" {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" rows="4" type="text" name="description" {% if recipe %} value="{{ recipe.details.description }}" {% else %} placeholder="Digues una breu descripció de la recepta!" {% endif %} autocomplete="on" required>
             </div>
 
             <!-- IMAGE -->
             <div class="uk-width-1-1@m">
                 <label class="uk-form-label" for="image-url">Url de la imatge</label>
-                <input class="uk-input" type="url" name="image-url" {% if recipe %} value="{{ recipe.image[0] }}" {% else %} value="http://tinyurl.com/y43mkb4h" {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" type="url" name="image-url" {% if recipe %} value="{{ recipe.image[0] }}" {% else %} value="http://tinyurl.com/y43mkb4h" {% endif %} autocomplete="on" required>
             </div>
 
             <!-- FILTERS -->
@@ -82,19 +83,19 @@
              <h3 class="uk-h3 uk-width-1-1">Temps</h3>
              <div class="uk-width-1-3@s">
                 <label class="uk-form-label" for="serves">Nº de racions</label>
-                <input class="uk-input" type="text" name="serves" {% if recipe %} value="{{ recipe.details.serves }}" {% else %} value="Racions: " {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" type="text" name="serves" {% if recipe %} value="{{ recipe.details.serves }}" {% else %} value="Racions: " {% endif %} autocomplete="on" required>
             </div>
 
             <!-- COOK TIME -->
             <div class="uk-width-1-3@s">
                 <label class="uk-form-label" for="cook-time">Temps de cocció</label>
-                <input class="uk-input" type="text" name="cook-time" {% if recipe %} value="{{ recipe.details.cook_time }}" {% else %} value="Cocció: " {% endif %} autocomplete="off" required>
+                <input data-memo  class="uk-input" type="text" name="cook-time" {% if recipe %} value="{{ recipe.details.cook_time }}" {% else %} value="Cocció: " {% endif %} autocomplete="on" required>
             </div>
 
             <!-- PREP TIME -->
             <div class="uk-width-1-3@s">
                 <label class="uk-form-label" for="prep-time">Temps de preparació</label>
-                <input class="uk-input" type="text" name="prep-time" {% if recipe %} value="{{ recipe.details.prep_time }}" {% else %} value="Preparació: " {% endif %}  autocomplete="off" required>
+                <input data-memo  class="uk-input" type="text" name="prep-time" {% if recipe %} value="{{ recipe.details.prep_time }}" {% else %} value="Preparació: " {% endif %}  autocomplete="on" required>
             </div>
 
             <!-- IINSTRUCTIONS -->
@@ -104,25 +105,25 @@
                     {% for method in recipe.methods %}
                         <div class="uk-width-1-2@s">
                             <label class="uk-form-label ">Nº {{ loop.index }}.</label>
-                            <input class="uk-input" type="textarea" name="instruction-{{ loop.index }}" value="{{ method }}" autocomplete="off">
+                            <input data-memo  class="uk-input" type="textarea" name="instruction-{{ loop.index }}" value="{{ method }}" autocomplete="on">
                         </div>
                     {% endfor %}
                 {% else %}
                     <div class="uk-width-1-2@s">
                         <label class="uk-form-label ">Nº 1</label>
-                        <input class="uk-input" type="textarea" name="instruction-1" autocomplete="off">
+                        <input data-memo  class="uk-input" type="textarea" name="instruction-1" autocomplete="on">
                     </div>
                     <div class="uk-width-1-2@s">
                         <label class="uk-form-label ">Nº 2</label>
-                        <input class="uk-input" type="textarea" name="instruction-2" autocomplete="off">
+                        <input data-memo  class="uk-input" type="textarea" name="instruction-2" autocomplete="on">
                     </div>
                 {% endif %}
             </div>
 
             <!-- ADD / REMOVE INSTRUCTIONS BUTTONS -->
             <div class="uk-width-1-1">
-                <input id="add-instruction" type="button" class="uk-button" value="Afegir instrucció">
-                <input id="remove-instruction" type="button" class="uk-button uk-button-danger" value="Eliminar última instrucció">
+                <input data-memo  id="add-instruction" type="button" class="uk-button" value="Afegir instrucció">
+                <input data-memo  id="remove-instruction" type="button" class="uk-button uk-button-danger" value="Eliminar última instrucció">
             </div>
 
             
@@ -131,27 +132,27 @@
             <div id="ingredients" class="uk-grid uk-grid-collapse uk-width-1-1@m uk-child-width-1-2@s" uk-grid>
                     {% if recipe %}
                         {% for ingredient in recipe.ingredients %}
-                            <input class="uk-input" type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient }}" autocomplete="off">
+                            <input data-memo  class="uk-input" type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient }}" autocomplete="on">
                         {% endfor %}
                     {% else %}
-                        <input class="uk-input" type="text" name="ingredient-1" value="" autocomplete="off" required>
-                        <input class="uk-input" type="text" name="ingredient-2" autocomplete="off">
-                        <input class="uk-input" type="text" name="ingredient-3" autocomplete="off">
-                        <input class="uk-input" type="text" name="ingredient-4" autocomplete="off">
+                        <input data-memo  class="uk-input" type="text" name="ingredient-1" value="" autocomplete="on" required>
+                        <input data-memo  class="uk-input" type="text" name="ingredient-2" autocomplete="on">
+                        <input data-memo  class="uk-input" type="text" name="ingredient-3" autocomplete="on">
+                        <input data-memo  class="uk-input" type="text" name="ingredient-4" autocomplete="on">
                     {% endif %}
             </div>
 
             <!-- ADD / REMOVE INGREDIENT BUTTONS -->
             <div class="uk-width-1-1">
-                <input id="add-ingredient" type="button" class="uk-button" value="Afegir ingredient">
-                <input id="remove-ingredient" type="button" class="uk-button uk-button-danger" value="Eliminar últim ingredient">
+                <input data-memo  id="add-ingredient" type="button" class="uk-button" value="Afegir ingredient">
+                <input data-memo  id="remove-ingredient" type="button" class="uk-button uk-button-danger" value="Eliminar últim ingredient">
             </div>
 
             <!-- KEYWORDS -->
             <h3 class="uk-h3 uk-width-1-1">Paraules clau</h3>
             <div class="uk-width-1-1@m">
                 <label class="uk-form-label" for="keywords">valors separats per comes</label>
-                <input id="keywords" class="uk-input" type="text" name="keywords" {% if recipe %} value="{% for kw in recipe.filters.kw %} {{ kw}}, {% endfor %}" {% endif %} autocomplete="off">
+                <input data-memo  id="keywords" class="uk-input" type="text" name="keywords" {% if recipe %} value="{% for kw in recipe.filters.kw %} {{ kw}}, {% endfor %}" {% endif %} autocomplete="on">
             </div>
         
 
@@ -173,7 +174,7 @@
                         <tbody>
                             <tr>
                                 {% for item in range(6) %}
-                                    <td><input type="text" name="nutrition-{{ loop.index }}" class="uk-text-emphasis" {% if recipe %} value="{{ recipe.nutrition[loop.index - 1][1] }}" {% else %} value="0" {% endif %} autocomplete="off"></td>
+                                    <td><input data-memo  type="text" name="nutrition-{{ loop.index }}" class="uk-text-emphasis" {% if recipe %} value="{{ recipe.nutrition[loop.index - 1][1] }}" {% else %} value="0" {% endif %} autocomplete="on"></td>
                                 {% endfor %}
                             </tr>
                         </tbody>
@@ -185,13 +186,29 @@
             <h3 class="uk-h3 uk-width-1-1">Guardar / Eliminar Recepta</h3>
         </div>
         <!-- Save / Reset Buttons -->
-        <input type="submit" class="uk-button uk-button" value="Guardar">
-        <input type="reset" class="uk-button uk-button" value="Reset">
+        <input data-memo  type="submit" class="uk-button uk-button" value="Guardar">
+        <input data-memo  type="reset" class="uk-button uk-button" value="Reset">
 
         <!-- IF ITS A EDITED RECIPE - MAKE DELETE BUTTON AVAILABLE -->
         {% if recipe %}
             <a class="uk-button uk-button-danger" href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}">Elimina</a>
         {% endif %}
     </form>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+    
+    $(window).on("beforeunload", function() {
+        return "Are you sure? You didn't finish the form!";
+    });
+    
+    $(document).ready(function() {
+        $("#myForm").on("submit", function(e) {
+            //check form to make sure it is kosher
+            //remove the ev
+            $(window).off("beforeunload");
+            return true;
+        });
+    });
+    </script>
 </section>
 {% endblock %}
