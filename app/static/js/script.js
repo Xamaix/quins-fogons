@@ -1,4 +1,5 @@
 
+
 /*
 ==================================================================
     Menu Animation
@@ -248,6 +249,37 @@ function removeEditorInput(category) {
 }
 
 
+/*
+==================================================================
+   Autosave
+==================================================================
+*/
+memo_form = (function() {
+    document.addEventListener("DOMContentLoaded", function() { load() });
+    window.addEventListener('beforeunload', function() { save() });
+    function save() {
+        var memo = { fields: {}, clicks: [] };
+        document.querySelectorAll("[data-memo]:not([type='checkbox']):not([type='radio'])").forEach(function(item) {
+            memo.fields[item.id] = item.value;
+        });
+        document.querySelectorAll("[data-memo][type='checkbox']:checked,[data-memo][type='radio']:checked").forEach(function(item) {
+            memo.clicks.push(item.id)
+        });
+        localStorage.setItem("memo", JSON.stringify(memo));
+    }
+    function load(f) {
+        var memo = JSON.parse(localStorage.getItem("memo"));
+        for (x in memo.fields) {
+            document.getElementById(x).value = (f ? "" : memo.fields[x])
+        }
+        for (x in memo.clicks) {
+            document.getElementById(memo.clicks[x]).checked = f ? false : true;
+        }
+    }
+    return {
+        clean: function() { load(1) }
+    }
+}());
 /*
 ==================================================================
    Profile Page Show / Hide Recipes
